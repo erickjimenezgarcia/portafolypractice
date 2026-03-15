@@ -6,37 +6,43 @@
 /*----------------- Website Theme --------------------*/
 
 :root{
-    --hue-1: 257;
-    --hue-2: 47;
-    --main-color-1: hsl(var(--hue-1), 100%, 60%);
-    --main-color-dark-1: hsl(var(--hue-1), 69%, 50%);
-    --main-color-2: hsl(var(--hue-2), 100%, 61%);
-    --main-color-dark-2: hsl(var(--hue-2),82%,55%);
+    /* Colores base SUNASS */
+    --hue-1: 208;   /* Azul SUNASS */
+    --hue-2: 122;   /* Verde SUNASS */
+
+    --main-color-1: hsl(var(--hue-1), 89%, 44%);
+    --main-color-dark-1: hsl(var(--hue-1), 89%, 36%);
+
+    --main-color-2: hsl(var(--hue-2), 76%, 40%);
+    --main-color-dark-2: hsl(var(--hue-2), 76%, 32%);
+
     --section-padding: 7rem;    
 }
 
 body{
-    --bg-color: hsl(var(--hue-1), 100%, 97%);
-    --bg-color-1: hsl(var(--hue-1), 100%, 95.5%);
-    --bg-color-2: #fff;
-    --bg-color-3: hsl(var(--hue-1), 100%, 98%);
+    --bg-color: hsl(var(--hue-1), 100%, 98%);
+    --bg-color-1: hsl(var(--hue-1), 60%, 96%);
+    --bg-color-2: #ffffff;
+    --bg-color-3: hsl(var(--hue-1), 80%, 97%);
     --bg-color-transparent: rgba(255, 255, 255, 0.6);
-    --heading-color: hsl(var(--hue-1),61%,24%);
-    --text-color: hsl(var(--hue-1),17%,63%);        
+
+    --heading-color: hsl(var(--hue-1), 35%, 24%);
+    --text-color: hsl(var(--hue-1), 14%, 42%);        
 }
 
 body.dark{
-    --bg-color: hsl(var(--hue-1), 19%, 15%);
-    --bg-color-1: hsl(var(--hue-1), 21%, 11%);
-    --bg-color-2: hsl(var(--hue-1), 23%, 19%);
-    --bg-color-3: hsl(var(--hue-1), 23%, 24%);
-    --bg-color-transparent: hsla(var(--hue-1), 23%, 19%, 0.6);
-    --heading-color: hsl(var(--hue-1), 100%,95%);
-    --text-color: hsl(var(--hue-1), 14%,51%);  
+    --bg-color: hsl(var(--hue-1), 22%, 12%);
+    --bg-color-1: hsl(var(--hue-1), 24%, 10%);
+    --bg-color-2: hsl(var(--hue-1), 20%, 16%);
+    --bg-color-3: hsl(var(--hue-1), 18%, 22%);
+    --bg-color-transparent: hsla(var(--hue-1), 20%, 16%, 0.6);
+
+    --heading-color: hsl(var(--hue-1), 35%, 95%);
+    --text-color: hsl(var(--hue-1), 12%, 68%);  
 }
 
 body.dark .st1{
-    fill: hsl(var(--hue-1), 18%,29%);    
+    fill: hsl(var(--hue-1), 18%, 29%);    
 }
 
 body.dark .shape.square{
@@ -48,7 +54,7 @@ body.dark .toggle-btn{
 }
 
 body.dark .toggle-btn:hover{
-    background-color: brightness(110%);    
+    filter: brightness(110%);    
 }
 
 body.dark .nav-link:hover::after, 
@@ -518,6 +524,11 @@ body.open .hamburger .bar:last-child{
     justify-content: center;
     cursor: pointer;
     transition: 0.5s transform, 0.3s background-color;
+}
+
+.about-card h3{
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .about-card:nth-child(1){
