@@ -58,6 +58,7 @@ let sr= ScrollReveal({
 
 sr.reveal(".showcase-info", {delay:600});
 sr.reveal(".showcase-image", {origin:"top",delay:700});
+sr.reveal(".tl-item", { interval: 150, origin: "bottom", distance: "40px" });
 
 
 /*----------------- Skills Progress Bar Animation --------------------*/
@@ -237,5 +238,4 @@ links.forEach(link =>
 );
     
 
-sr.reveal(".tl-item", { interval: 150, origin: "bottom", distance: "40px" });
 
