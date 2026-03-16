@@ -237,6 +237,7 @@ links.forEach(link =>
 );
     
 
+sr.reveal(".tl-item", { interval: 150, origin: "bottom", distance: "40px" });
 
 
 
