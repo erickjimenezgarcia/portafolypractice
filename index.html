@@ -56,12 +56,12 @@
                     <div class="cta">
                         <a href="https://survey123.arcgis.com/share/d820432b0e8d413ab0aeb44ba1dc7034?portalUrl=https://geosunass.sunass.gob.pe/gisportal" class="btn">Registrarse</a>
                         <a href="./assets/Bases_Datathon_2026.pdf" download class="btn secondary-btn">Descargar Bases</a>
-                    </div>
+                    </div>  
                 </div>    
                 <div class="showcase-image">
                     <img src="./assets/person3.png" alt="Persona 1" class="person person-slide active">
                     <img src="./assets/person6.png" alt="Persona 2" class="person person-slide">
-                    <img src="./assets/peru1.png" alt="Persona 3" class="person person-slide">
+                    <img src="./assets/peru2.png" alt="Persona 3" class="person person-slide">
                     <img src="./assets/circle1.png" alt="" class="shape circle">
                     <img src="./assets/dots.png" alt="" class="shape dots">
                 </div>
@@ -392,23 +392,67 @@
                 </div>
             </div>
         </section>
-        
-        <section class="recap section" id="recap">
+
+        <!-- ===== SEDES MACRORREGIONALES ===== -->
+        <section class="sedes section" id="sedes">
           <div class="container">
-            <div class="recap-header">
-              <h1 class="heading recap-title">RECAP DEL EVENTO</h1>
-              <p class="text recap-subtitle">Revive los mejores momentos del Datathon SUNASS 2025</p>
+            <div class="sedes-header">
+              <div>
+                <h3 class="sub-heading">Sedes</h3>
+                <h1 class="heading">Macrorregiones del Perú</h1>
+              </div>
+              
             </div>
-            <div class="video-wrapper">
-              <div class="video-frame">
-                <iframe width="1406" height="791" src="https://www.youtube.com/embed/S2Z_8R5O-Lc"
-                  title="GRAN FINAL DE LA DATATHON SUNASS 2025" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="sedes-region-tabs" id="sedes-region-tabs">
+              <button class="sedes-region-tab active" data-region="Norte">Norte</button>
+              <button class="sedes-region-tab" data-region="Costa Centro">Costa Centro</button>
+              <button class="sedes-region-tab" data-region="Centro">Centro</button>
+              <button class="sedes-region-tab" data-region="Sur">Sur</button>
+              <button class="sedes-region-tab" data-region="Oriente">Oriente</button>
+            </div>
+
+            <div class="sedes-layout">
+              <div class="sedes-map-card">
+                <div class="sedes-map-top">
+                  <h4>Mapa del Perú</h4>
+                  <span id="sedes-selected-region-badge">Norte</span>
+                </div>
+
+                <div class="sedes-map-wrapper">
+                  <div id="sedes-map-container" class="sedes-map-container">
+                    <div class="sedes-map-loading">Cargando mapa...</div>
+                  </div>
+                </div>
+
+                <div class="sedes-map-legend">
+                  <div class="legend-item">
+                    <span class="legend-color legend-default"></span>
+                    <small>Sin seleccionar</small>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color legend-active"></span>
+                    <small>Macrorregión activa</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sedes-info-card">
+                <div class="sedes-info-head">
+                  <h4 id="sedes-region-title">Norte</h4>
+                  <p class="text" id="sedes-region-description">
+                    Sedes participantes de la macrorregión Norte.
+                  </p>
+                </div>
+
+                <div class="sedes-universities-grid" id="sedes-universities-grid">
+                  <!-- Render dinámico -->
+                </div>
               </div>
             </div>
           </div>
         </section>
+                
         
         <!-- ===== LÍNEA DEL TIEMPO ===== -->
         <section class="timeline section" id="timeline">
@@ -653,6 +697,8 @@
             </div>
           </div>
         </section>
+
+        
         
         <section class="portfolio section" id="portfolio">
           <div class="modal">
@@ -970,11 +1016,11 @@
                     <img src="./assets/testi5.png" alt="">
                     <div class="client-info">
                       <h4>Macro Sur</h4>
-                      <h5>25 DE ABRIL <a href="https://ucsp.edu.pe/">@UCSP</a> <a href="https://ucontinental.edu.pe/campus-cusco/">@UC</a></h5>
+                      <h5>25 DE ABRIL <a href="https://ucsp.edu.pe/">@UCSP</a> <a href="https://www.unsaac.edu.pe/">@UNSAAC</a></h5>
                     </div>
                   </div>
                   <q class="text">
-                    Con fecha presencial para el 25 de abril, se tiene 2 sedes participantes, siendo la Universidad Católica San Pablo en Arequipa y la Universidad Continental en Cusco.
+                    Con fecha presencial para el 25 de abril, se tiene 2 sedes participantes, siendo la Universidad Católica San Pablo en Arequipa y la Universidad Nacional San Antonio Abad en Cusco.
                   </q>
                 </div>
                 <div class="swiper-slide">
@@ -1031,6 +1077,23 @@
             <div class="testimonials-title">
               <h3 class="sub-heading">Sedes Macrorregionales</h3>
               <h1 class="heading">Para todo <br> el pais</h1>
+            </div>
+          </div>
+        </section>
+
+        <section class="recap section" id="recap">
+          <div class="container">
+            <div class="recap-header">
+              <h1 class="heading recap-title">RECAP DEL EVENTO</h1>
+              <p class="text recap-subtitle">Revive los mejores momentos del Datathon SUNASS 2025</p>
+            </div>
+            <div class="video-wrapper">
+              <div class="video-frame">
+                <iframe width="1406" height="791" src="https://www.youtube.com/embed/S2Z_8R5O-Lc"
+                  title="GRAN FINAL DE LA DATATHON SUNASS 2025" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
         </section>

@@ -6,18 +6,276 @@ const personSlides = document.querySelectorAll(".person-slide");
 let currentPersonIndex = 0;
 
 function changePersonSlide() {
-    // Quitar clase active de la imagen actual
-    personSlides[currentPersonIndex].classList.remove("active");
-    
-    // Avanzar al siguiente índice
-    currentPersonIndex = (currentPersonIndex + 1) % personSlides.length;
-    
-    // Agregar clase active a la nueva imagen
+    personSlides[currentPersonIndex].classList.remove("active");    
+    currentPersonIndex = (currentPersonIndex + 1) % personSlides.length;    
     personSlides[currentPersonIndex].classList.add("active");
 }
 
-// Cambiar imagen cada 3 segundos (3000ms)
 setInterval(changePersonSlide, 5000);
+
+
+/* =========================
+   SEDES MACRORREGIONALES
+========================= */
+
+(function () {
+  const sedesMapContainer = document.getElementById("sedes-map-container");
+  const sedesGrid = document.getElementById("sedes-universities-grid");
+  const sedesRegionTitle = document.getElementById("sedes-region-title");
+  const sedesRegionDescription = document.getElementById("sedes-region-description");
+  const sedesRegionBadge = document.getElementById("sedes-selected-region-badge");
+  const sedesTabs = document.querySelectorAll(".sedes-region-tab");
+
+  if (!sedesMapContainer || !sedesGrid || !sedesRegionTitle || !sedesRegionDescription || !sedesRegionBadge) {
+    return;
+  }
+
+  const DEPARTMENT_TO_REGION = {
+    "PE-TUM": "Norte",
+    "PE-PIU": "Norte",
+    "PE-LAM": "Norte",
+    "PE-LAL": "Norte",
+    "PE-CAJ": "Norte",
+
+    "PE-ANC": "Costa Centro",
+    "PE-LIM": "Costa Centro",
+    "PE-LMA": "Costa Centro",
+    "PE-CAL": "Costa Centro",
+    "PE-ICA": "Costa Centro",
+
+    "PE-HUC": "Centro",
+    "PE-PAS": "Centro",
+    "PE-JUN": "Centro",
+    "PE-HUV": "Centro",
+    "PE-AYA": "Centro",
+
+    "PE-ARE": "Sur",
+    "PE-CUS": "Sur",
+    "PE-TAC": "Sur",
+    "PE-MOQ": "Sur",
+    "PE-PUN": "Sur",
+    "PE-APU": "Sur",
+
+    "PE-LOR": "Oriente",
+    "PE-SAM": "Oriente",
+    "PE-UCA": "Oriente",
+    "PE-MDD": "Oriente",
+    "PE-AMA": "Oriente"
+  };
+
+  const DECORATIVE_IDS = ["PE-LKT"];
+
+  const UNIVERSITY_DATA = {
+    "Norte": [
+      {
+        name: "Universidad Nacional de Piura",
+        region: "Piura",
+        image: "./assets/unp.png"
+      }
+    ],
+    "Costa Centro": [
+      {
+        name: "Universidad Nacional Mayor de San Marcos",
+        region: "Lima",
+        image: "./assets/UNMSM.svg"
+      }
+    ],
+    "Centro": [
+      {
+        name: "Universidad Nacional del Centro del Peru",
+        region: "Junín",
+        image: "./assets/UNCP_LOGO.png"
+      }
+    ],
+    "Sur": [
+      {
+        name: "Universidad Catolica San Pablo",
+        region: "Arequipa",
+        image: "./assets/ucsp.png"
+      },
+      {
+        name: "Universidad Nacional de San Antonio Abad",
+        region: "Cusco",
+        image: "./assets/uni_cusco.png"
+      }
+    ],
+    "Oriente": [
+      {
+        name: "Universidad Peruana Union",
+        region: "San Martín",
+        image: "./assets/upeu_logo.png"
+      },
+      {
+        name: "Universidad Nacional Amazonica de Madre de Dios",
+        region: "Madre de Dios",
+        image: "./assets/UNAMAD.jpg"
+      },
+      {
+        name: "ODS SUNASS Loreto y Ucayali",
+        region: "Loreto y Ucayali",
+        image: "./assets/sunass_logo6.png"
+      }
+      
+    ]
+  };
+
+  let currentRegion = "Norte";
+
+  function renderUniversities(region) {
+    const items = UNIVERSITY_DATA[region] || [];
+
+    sedesRegionTitle.textContent = region;
+    sedesRegionDescription.textContent = `Sedes participantes de la macrorregión ${region}.`;
+    sedesRegionBadge.textContent = region;
+
+    sedesGrid.innerHTML = items.map((item) => `
+      <article class="sedes-university-card">
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+          class="sedes-university-image"
+        />
+        <div class="sedes-university-body">
+          <h5>${item.name}</h5>
+          <p>Región: ${item.region}</p>
+          <span class="sedes-university-tag">${region}</span>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  function updateTabs(region) {
+    sedesTabs.forEach((tab) => {
+      tab.classList.toggle("active", tab.dataset.region === region);
+    });
+  }
+
+  function paintRegion(region) {
+    currentRegion = region;
+    updateTabs(region);
+    renderUniversities(region);
+
+    const svg = sedesMapContainer.querySelector("svg");
+    if (!svg) return;
+
+    const allPaths = svg.querySelectorAll("path");
+
+    allPaths.forEach((path) => {
+      const id = path.id;
+      path.classList.remove("region-active", "region-soft", "region-disabled");
+
+      if (DECORATIVE_IDS.includes(id)) {
+        path.classList.add("region-disabled");
+        return;
+      }
+
+      const mappedRegion = DEPARTMENT_TO_REGION[id];
+
+      if (!mappedRegion) {
+        return;
+      }
+
+      if (mappedRegion === region) {
+        path.classList.add("region-active");
+      }
+    });
+  }
+
+  function bindMapEvents() {
+    const svg = sedesMapContainer.querySelector("svg");
+    if (!svg) return;
+
+    const paths = svg.querySelectorAll("path");
+
+    paths.forEach((path) => {
+      const id = path.id;
+
+      if (DECORATIVE_IDS.includes(id)) {
+        path.classList.add("region-disabled");
+        return;
+      }
+
+      const region = DEPARTMENT_TO_REGION[id];
+
+      if (!region) {
+        return;
+      }
+
+      path.addEventListener("click", () => {
+        paintRegion(region);
+      });
+
+      path.addEventListener("mouseenter", () => {
+        if (currentRegion === region) return;
+
+        paths.forEach((p) => {
+          if (DEPARTMENT_TO_REGION[p.id] === region) {
+            p.classList.add("region-soft");
+          }
+        });
+      });
+
+      path.addEventListener("mouseleave", () => {
+        paths.forEach((p) => p.classList.remove("region-soft"));
+      });
+    });
+  }
+
+  sedesTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const region = tab.dataset.region;
+      paintRegion(region);
+    });
+  });
+
+  fetch("./assets/peru.svg")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`No se encontró el SVG. Status: ${response.status}`);
+    }
+    return response.text();
+  })
+  .then((svgText) => {
+    console.log("SVG cargado correctamente");
+    console.log("Primeros caracteres:", svgText.substring(0, 200));
+
+    sedesMapContainer.innerHTML = svgText;
+
+    const svg = sedesMapContainer.querySelector("svg");
+    console.log("svg encontrado en el DOM:", svg);
+
+    if (svg) {
+        svg.setAttribute("id", "sedes-map-svg");
+        svg.removeAttribute("width");
+        svg.removeAttribute("height");
+        svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+        try {
+            const bbox = svg.getBBox();
+            svg.setAttribute(
+            "viewBox",
+            `${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`
+            );
+        } catch (error) {
+            console.error("No se pudo ajustar el viewBox del SVG:", error);
+        }
+    }
+
+    bindMapEvents();
+    paintRegion(currentRegion);
+  })
+  .catch((error) => {
+    console.error("Error cargando el mapa:", error);
+
+    sedesMapContainer.innerHTML = `
+      <div class="sedes-map-loading">
+        No se pudo cargar el mapa. Verifica que el archivo esté en <strong>./assets/peru.svg</strong>
+      </div>
+    `;
+  });
+})();
+
+
 
 const first_skill = document.querySelector(".skill:first-child");
 const sk_counters = document.querySelectorAll(".counter span");
@@ -255,6 +513,5 @@ links.forEach(link =>
     document.body.classList.remove("stopScrolling");
 })
 );
-    
-
+  
 

@@ -2158,3 +2158,328 @@ footer .social-media{
         margin-top: 1rem;
     }
 }
+
+/* ===== SEDES MACRORREGIONALES ===== */
+
+.sedes{
+  position: relative;
+  overflow: hidden;
+}
+
+.sedes-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sedes-intro{
+  max-width: 520px;
+}
+
+.sedes-region-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.sedes-region-tab{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: var(--bg-color-2);
+  color: var(--heading-color);
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.sedes-region-tab:hover{
+  transform: translateY(-2px);
+}
+
+.sedes-region-tab.active{
+  background: linear-gradient(135deg, var(--main-color-1), var(--main-color-2));
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(0, 75, 187, 0.18);
+}
+
+.sedes-layout{
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.sedes-map-card,
+.sedes-info-card{
+  background: var(--bg-color-2);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  transition: 0.3s background-color, 0.3s color;
+}
+
+.sedes-map-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sedes-info-head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--heading-color);
+}
+
+.sedes-map-top h4 {
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.sedes-info-head h4,
+.sedes-info-head p{
+  margin: 0;
+}
+
+#sedes-selected-region-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--main-color-1), var(--main-color-2));
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.sedes-map-wrapper{
+  background: linear-gradient(180deg, rgba(0,75,187,0.03), rgba(46,125,50,0.04));
+  border-radius: 20px;
+  padding: 1rem;
+  min-height: 560px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sedes-map-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sedes-map-loading{
+  color: var(--text-color);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.sedes-map-container svg{
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sedes-map-container path{
+  fill: #d8e5f3;
+  stroke: #ffffff;
+  stroke-width: 1.25;
+  cursor: pointer;
+  transition: fill 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+
+.sedes-map-container path:hover{
+  fill: #8ab6e8;
+}
+
+.sedes-map-container path.region-active{
+  fill: var(--main-color-1);
+}
+
+.sedes-map-container path.region-soft{
+  fill: #9dd7b0;
+}
+
+.sedes-map-container path.region-disabled{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.sedes-map-container path.region-active:hover,
+.sedes-map-container path.region-soft:hover{
+  transform: translateY(-1px);
+}
+
+.sedes-map-legend{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.legend-item{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+}
+
+.legend-color{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-default{
+  background: #d8e5f3;
+}
+
+.legend-active{
+  background: var(--main-color-1);
+}
+
+.sedes-universities-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.sedes-university-card{
+  background: var(--bg-color-3);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s;
+}
+
+.sedes-university-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.sedes-university-image{
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #edf4fb;
+  padding: 1rem;
+}
+
+.sedes-university-body{
+  padding: 1rem;
+}
+
+.sedes-university-body h5{
+  color: var(--heading-color);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.sedes-university-body p{
+  color: var(--text-color);
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+}
+
+.sedes-university-tag{
+  display: inline-flex;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--main-color-1);
+  background: rgba(0,75,187,0.08);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+body.dark .sedes-map-container path{
+  stroke: rgba(255,255,255,0.45);
+  fill: #314355;
+}
+
+body.dark .sedes-map-container path:hover{
+  fill: #4a79a7;
+}
+
+body.dark .sedes-map-container path.region-active{
+  fill: #2c8fff;
+}
+
+body.dark .sedes-map-container path.region-soft{
+  fill: #3f9f67;
+}
+
+@media (max-width: 1100px){
+  .sedes-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .sedes-map-wrapper{
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px){
+  .sedes-header{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sedes-region-tabs{
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.35rem;
+  }
+
+  .sedes-region-tab{
+    flex: 0 0 auto;
+  }
+
+  .sedes-map-card,
+  .sedes-info-card{
+    padding: 1.1rem;
+    border-radius: 18px;
+  }
+
+  .sedes-map-wrapper{
+    padding: 0.6rem;
+  }
+
+  .sedes-universities-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .sedes-university-image{
+    height: 160px;
+  }
+
+  .sedes-map-top,
+  .sedes-info-head{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
