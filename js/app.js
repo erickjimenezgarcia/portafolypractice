@@ -1,5 +1,24 @@
 const header=document.querySelector("header");
 
+/*----------------- Person Image Carousel --------------------*/
+
+const personSlides = document.querySelectorAll(".person-slide");
+let currentPersonIndex = 0;
+
+function changePersonSlide() {
+    // Quitar clase active de la imagen actual
+    personSlides[currentPersonIndex].classList.remove("active");
+    
+    // Avanzar al siguiente índice
+    currentPersonIndex = (currentPersonIndex + 1) % personSlides.length;
+    
+    // Agregar clase active a la nueva imagen
+    personSlides[currentPersonIndex].classList.add("active");
+}
+
+// Cambiar imagen cada 3 segundos (3000ms)
+setInterval(changePersonSlide, 5000);
+
 const first_skill = document.querySelector(".skill:first-child");
 const sk_counters = document.querySelectorAll(".counter span");
 const progress_bars = document.querySelectorAll(".skills svg circle");

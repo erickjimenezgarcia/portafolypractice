@@ -491,6 +491,40 @@ body.open .hamburger .bar:last-child{
     transform: translate(-50%, -50%);
 }
 
+/* Estilos para el carrusel de personas */
+.showcase-image .person-slide{
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.showcase-image .person-slide.active{
+    opacity: 1;
+}
+
+
+
+.showcase-area .circle{
+    position: absolute;
+    width: 190px;
+    left: 0;
+    top: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.showcase-area .dots{
+    position: absolute;
+    left: 100%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.showcase-area .square{
+    position: absolute;
+    left: 25%;
+    bottom: 120px;
+    transform: translate(-50%, -50%);
+}
+
 /*----------------- About section --------------------*/
 
 .about .container{
