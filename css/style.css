@@ -1,48 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 
 /*----------------- Website Theme --------------------*/
 
 :root{
-    /* Colores base SUNASS */
-    --hue-1: 208;   /* Azul SUNASS */
-    --hue-2: 122;   /* Verde SUNASS */
+    /* Paleta oficial */
+    --primary-blue: #066EC8;
+    --primary-green: #46A500;
+    --primary-cyan: #23D2FA;
 
-    --main-color-1: hsl(var(--hue-1), 89%, 44%);
-    --main-color-dark-1: hsl(var(--hue-1), 89%, 36%);
+    --secondary-blue: #05509B;
+    --secondary-green: #73CD1E;
+    --secondary-lime: #C8E600;
+    --secondary-gray: #C6CBCB;
+    --secondary-light-gray: #EBF0F0;
 
-    --main-color-2: hsl(var(--hue-2), 76%, 40%);
-    --main-color-dark-2: hsl(var(--hue-2), 76%, 32%);
+    /* Colores semánticos para usar en la web */
+    --main-color-1: var(--primary-blue);
+    --main-color-dark-1: var(--secondary-blue);
+
+    --main-color-2: var(--primary-green);
+    --main-color-dark-2: #3a8a00; /* un verde un poco más oscuro para hover */
+
+    --accent-color: var(--primary-cyan);
+    --accent-color-2: var(--secondary-lime);
 
     --section-padding: 7rem;    
 }
 
 body{
-    --bg-color: hsl(var(--hue-1), 100%, 98%);
-    --bg-color-1: hsl(var(--hue-1), 60%, 96%);
+    --bg-color: #f8fbfd;
+    --bg-color-1: #eef6fb;
     --bg-color-2: #ffffff;
-    --bg-color-3: hsl(var(--hue-1), 80%, 97%);
-    --bg-color-transparent: rgba(255, 255, 255, 0.6);
+    --bg-color-3: #f3f7f8;
+    --bg-color-transparent: rgba(255, 255, 255, 0.7);
 
-    --heading-color: hsl(var(--hue-1), 35%, 24%);
-    --text-color: hsl(var(--hue-1), 14%, 42%);        
+    --heading-color: #1b3f5f;
+    --text-color: #5f6f7a;        
 }
 
 body.dark{
-    --bg-color: hsl(var(--hue-1), 22%, 12%);
-    --bg-color-1: hsl(var(--hue-1), 24%, 10%);
-    --bg-color-2: hsl(var(--hue-1), 20%, 16%);
-    --bg-color-3: hsl(var(--hue-1), 18%, 22%);
-    --bg-color-transparent: hsla(var(--hue-1), 20%, 16%, 0.6);
+    --bg-color: #010035;                         /* fondo principal */
+    --bg-color-1: #07074a;                       /* secciones */
+    --bg-color-2: #0d0d5f;                       /* cards / bloques */
+    --bg-color-3: #15157a;                       /* hover / superficies elevadas */
+    --bg-color-transparent: rgba(1, 0, 53, 0.72);
 
-    --heading-color: hsl(var(--hue-1), 35%, 95%);
-    --text-color: hsl(var(--hue-1), 12%, 68%);  
+    --heading-color: #f4fbff;
+    --text-color: #b7c7d1;  
 }
 
 body.dark .st1{
-    fill: hsl(var(--hue-1), 18%, 29%);    
+    fill: #1f2a8a;    
 }
 
 body.dark .shape.square{
@@ -225,6 +235,14 @@ ul{
 .btn.secondary-btn.sm::before{
     height: 2px;
     bottom: -2px;
+}
+
+body.dark .btn.secondary-btn{
+    color: #ffffff;
+}
+
+body.dark .btn.secondary-btn::before{
+    background-color: #ffffff;
 }
 
 .section{
@@ -1177,6 +1195,7 @@ body.dark .tl-card {
     position: relative;
     overflow: hidden;
     display: flex;
+    background-color: #f3f7f8;
     align-items: center;
     justify-content: center;
     cursor: pointer;

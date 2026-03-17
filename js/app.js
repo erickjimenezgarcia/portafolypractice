@@ -138,7 +138,6 @@ setInterval(changePersonSlide, 5000);
         <div class="sedes-university-body">
           <h5>${item.name}</h5>
           <p>Región: ${item.region}</p>
-          <span class="sedes-university-tag">${region}</span>
         </div>
       </article>
     `).join("");
@@ -419,7 +418,7 @@ modal_overlay.addEventListener("click", ()=> {
 
 prev_btn.addEventListener("click",()=>{
     if(currentIndex === 0){
-        currentIndex = 5;
+        currentIndex = 14;
     }else{
         currentIndex--;
     }
@@ -429,7 +428,7 @@ prev_btn.addEventListener("click",()=>{
 })
 
 next_btn.addEventListener("click",()=>{
-    if(currentIndex === 5){
+    if(currentIndex === 14){
         currentIndex = 0;
     }else{
         currentIndex++;
