@@ -94,9 +94,9 @@ setInterval(changePersonSlide, 5000);
         image: "./assets/ucsp.png"
       },
       {
-        name: "Universidad Nacional de San Antonio Abad",
+        name: "Universidad Continental",
         region: "Cusco",
-        image: "./assets/uni_cusco.png"
+        image: "./assets/continental.jpg"
       }
     ],
     "Oriente": [
@@ -418,7 +418,7 @@ modal_overlay.addEventListener("click", ()=> {
 
 prev_btn.addEventListener("click",()=>{
     if(currentIndex === 0){
-        currentIndex = 14;
+        currentIndex = 13;
     }else{
         currentIndex--;
     }
@@ -428,7 +428,7 @@ prev_btn.addEventListener("click",()=>{
 })
 
 next_btn.addEventListener("click",()=>{
-    if(currentIndex === 14){
+    if(currentIndex === 13){
         currentIndex = 0;
     }else{
         currentIndex++;
