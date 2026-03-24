@@ -275,6 +275,24 @@ setInterval(changePersonSlide, 5000);
 })();
 
 
+ document.getElementById("login-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const usuario = document.getElementById("usuario").value.trim();
+    const clave = document.getElementById("clave").value.trim();
+    const msg = document.getElementById("login-msg");
+
+    const USER = "voluntario";
+    const PASS = "sunass2026";
+
+    if (usuario === USER && clave === PASS) {
+      sessionStorage.setItem("voluntario_auth", "ok");
+      window.location.href = "./voluntarios.html";
+    } else {
+      msg.textContent = "Usuario o contraseña incorrectos.";
+      msg.style.color = "red";
+    }
+  });
 
 const first_skill = document.querySelector(".skill:first-child");
 const sk_counters = document.querySelectorAll(".counter span");
@@ -512,5 +530,6 @@ links.forEach(link =>
     document.body.classList.remove("stopScrolling");
 })
 );
-  
+
+
 

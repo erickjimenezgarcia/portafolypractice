@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datathon Sunass 2026</title>
+    <link rel="icon" type="image/png" href="./assets/logosunass.png">
+    <!-------Scroll Reveal Library--------->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!---------- CSS File ------------>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body >
+    <div class="overlay"></div>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo"><img src="./assets/datathon-sunass.png" alt="Datathon SUNASS"></a>
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="./index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#voluntarios" class="nav-link">Voluntarios</a>
+                    </li>
+                </ul>
+                <i class="uil uil-moon toggle-btn" hidden></i>
+            </div>
+            <div class="hamburger">
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="volunteers section" id="voluntarios" style="margin-top: 1rem;">
+  <div class="container">
+    <div class="volunteers-header">
+      <div>
+        <h3 class="sub-heading">Voluntarios</h3>
+        <h1 class="heading">Recursos y enlaces útiles</h1>
+      </div>
+      <p class="text volunteers-intro">
+        Aquí encontrarás enlaces importantes, materiales de apoyo, reuniones, publicaciones e información útil para el voluntariado.
+      </p>
+    </div>
+
+    <div class="volunteers-grid" id="volunteers-grid">
+      <!-- Las cards se insertan desde JS -->
+    </div>
+  </div>
+</section>
+    </main>
+
+
+
+    <footer>
+      <div class="container">
+        <a href="#" class="logo"><img src="./assets/datathon-sunass.png" alt="Datathon SUNASS"></a>
+        <p class="text">&copy; Copyright 2026. Datathon SUNASS 2026</p>
+        <ul class="social-media">
+          <li>
+            <a href="https://www.facebook.com/Sunass.Regulador?locale=es_LA" class="social-link">
+              <i class="uil uil-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/sunass.peru?igsh=MWp6NHNtb21heHo3cw==" class="social-link">
+              <i class="uil uil-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.gob.pe/sunass" class="social-link">
+              <i class="uil uil-dribbble"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!--  JavaScript Files  -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/mixitup.min.js"></script>
+    <script src="./js/voluntario.js"></script>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+</html>
